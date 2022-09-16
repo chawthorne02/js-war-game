@@ -89,3 +89,15 @@ html{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
+.players-input {
+    display: flex;
+    justify-content: space-around;
+    gap: 200px;
+    margin-top: 10px;
+}
+
+label {
+    color: rgb(30, 245, 245);
+    font-family: fantasy;
+    font-weight: ;
+}
