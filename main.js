@@ -38,7 +38,22 @@ function deckOfCards() {
     })
 }
 
+let player1Deck, player2Deck; 
+
+startGame() 
+    function startGame(){
+        const deck = new Deck();
+        deck.shuffleDeck();
+
+        const deckMidCheckpoint = Math.ceil(deck.numberOfCards / 2);
+        player1Deck = new Deck(deck.cards.slice( 0, deckMidCheckpoint));
+        player2Deck = new Deck(deck.cards.slice(deckMidCheckpoint, deck.numberOfCards));
+    }
+
+
 const deck = new Deck()
 deck.shuffleDeck();
 console.log(deck.cards)
 
+console.log(player1Deck);
+console.log(player2Deck);
