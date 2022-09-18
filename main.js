@@ -51,9 +51,17 @@ startGame()
     }
 
 
-const deck = new Deck()
-deck.shuffleDeck();
-console.log(deck.cards)
+    const playerOneDeck = document.querySelector('.player1-deck');
+    const playerTwoDeck = document.querySelector('.player2-deck');
+    const player1Cardhand = document.querySelector('.player1-cardhand');
+    const player2Cardhand = document.querySelector('.player2-cardhand');
+    const 
+    
 
-console.log(player1Deck);
-console.log(player2Deck);
+
+
+
+
+
+
+

@@ -87,6 +87,12 @@ html{
     background-color: rgb(217, 44, 236);
     color: rgb(30, 245, 245);
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border: solid 2px #fff;
+}
+
+.deal-button:hover {
+    filter: brightness(0.7);
+    cursor: pointer;
 }
 
 .players-input {
@@ -99,5 +105,35 @@ html{
 label {
     color: rgb(30, 245, 245);
     font-family: fantasy;
-    font-weight: ;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-title {
+    color: rgb(30, 245, 245);
+    font-family: fantasy;
+    font-size: 2rem;
+    margin-left: 70px;
+}
+
+.newgame-btn {
+    font-size: 2rem;
+    background-color: rgb(217, 44, 236);
+    color: rgb(30, 245, 245);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-right: 70px;
+}
+
+.newgame-btn:hover {
+    cursor: pointer;
+    filter: brightness(0.7);
+}
+
+header {
+    border-bottom: solid 2px #fff;
+    background-color: #800080;
 }
