@@ -131,12 +131,16 @@ function flipCards(){
 
      const player1Card = playerOneDeck.pop();
      const player2Card = playerTwoDeck.pop();
+    //  console.log(playerOneDeck.cards[0].value);
 
-     player1Cardhand.appendChild(player1Card.getHTML());
-     player2Cardhand.appendChild(player2Card.getHTML());
+    player1Cardhand.innerHTML = `${player1Card.value}${player1Card.suit}`;
+    player2Cardhand.innerHTML = `${player2Card.value}${player2Card.suit}`;
 
 
-    updateDeckCount()
+
+    //  player1Cardhand.appendChild(player1Card.getHTML());
+    //  player2Cardhand.appendChild(player2Card.getHTML());
+    // updateDeckCount()
     
 }
 
@@ -149,7 +153,7 @@ function roundWinner(cardOne, cardTwo) {
     return CARD_VALUES_MAP[cardOne.value] > CARD_VALUES_MAP[cardTwo.value]
 }
     
- function updateCardHand () {
-    player1Cardhand.innerHTML = `${this.player1Cardhand.value}${this.player1Cardhand.suit}`;
-    player2Cardhand.innerHTML = `${this.player2Cardhand.value}${this.player2Cardhand.suit}`;
-  };
+//  function updateCardHand () {
+//     player1Cardhand.innerHTML = `${this.player1Cardhand.value}${this.player1Cardhand.suit}`;
+//     player2Cardhand.innerHTML = `${this.player2Cardhand.value}${this.player2Cardhand.suit}`;
+//   };
