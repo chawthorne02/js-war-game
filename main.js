@@ -92,7 +92,7 @@ function deckOfCards() {
 let playerOneDeck, playerTwoDeck, inGame; 
  
 
-playGameButton.addEventListener('click', () => {
+document.addEventListener('click', () => {
     if (inGame) {
         beforeRound()
     } else {
@@ -136,12 +136,21 @@ function flipCards(){
     player1Cardhand.innerHTML = `${player1Card.value}${player1Card.suit}`;
     player2Cardhand.innerHTML = `${player2Card.value}${player2Card.suit}`;
 
-
-
-    //  player1Cardhand.appendChild(player1Card.getHTML());
-    //  player2Cardhand.appendChild(player2Card.getHTML());
-    // updateDeckCount()
+    if (roundWinner(player1Card, player2Card)) {
+        gameTitle.innerText = "Player 1 Wins!";
+        playerOneDeck.push(player1Card);
+        playerOneDeck.push(player2Card);
+    } else if (player2Card, player1Card) {
+        gameTitle.innerText = "Player 2 Wins!";
+        playerTwoDeck.push(player2Card);
+        playerTwoDeck.push(player1Card);
+    } else {
+        gameTitle.innerText = "Draw!";
+        playerOneDeck.push(player1Card);
+        playerTwoDeck.push(player2Card);
+    }
     
+
 }
 
 function updateDeckCount() {
