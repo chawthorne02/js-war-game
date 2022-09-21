@@ -6,7 +6,7 @@ const player2Cardhand = document.querySelector('.player2-cardhand');
 const playGameButton = document.querySelector('.deal-button');
 const newGameButton = document.querySelector('.newgame-btn');
 const gameTitle = document.querySelector('.game-title');
-
+const gameText = document.querySelector('.text');
 
 
 const SUITS = ["♠", "♣", "♥", "♦"] 
@@ -92,12 +92,16 @@ function deckOfCards() {
 let playerOneDeck, playerTwoDeck, inGame; 
  
 
-document.addEventListener('click', () => {
+playGameButton.addEventListener('click', () => {
     if (inGame) {
         beforeRound()
     } else {
         flipCards()
     }
+})
+
+newGameButton.addEventListener('click', () => {
+    return beforeRound();
 })
 
     
@@ -137,15 +141,15 @@ function flipCards(){
     player2Cardhand.innerHTML = `${player2Card.value}${player2Card.suit}`;
 
     if (roundWinner(player1Card, player2Card)) {
-        gameTitle.innerText = "Player 1 Wins!";
+        gameText.innerText = "Player 1 Wins!";
         playerOneDeck.push(player1Card);
         playerOneDeck.push(player2Card);
     } else if (player2Card, player1Card) {
-        gameTitle.innerText = "Player 2 Wins!";
+        gameText.innerText = "Player 2 Wins!";
         playerTwoDeck.push(player2Card);
         playerTwoDeck.push(player1Card);
     } else {
-        gameTitle.innerText = "Draw!";
+        gameText.innerText = "Draw!";
         playerOneDeck.push(player1Card);
         playerTwoDeck.push(player2Card);
     }
@@ -162,6 +166,13 @@ function roundWinner(cardOne, cardTwo) {
     return CARD_VALUES_MAP[cardOne.value] > CARD_VALUES_MAP[cardTwo.value]
 }
     
+function gameOver(deck) {
+    return deck.numberOfCards === 0;
+}
+
+
+
+
 //  function updateCardHand () {
 //     player1Cardhand.innerHTML = `${this.player1Cardhand.value}${this.player1Cardhand.suit}`;
 //     player2Cardhand.innerHTML = `${this.player2Cardhand.value}${this.player2Cardhand.suit}`;

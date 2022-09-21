@@ -141,3 +141,10 @@ header {
     border-bottom: solid 2px #fff;
     background-color: #800080;
 }
+
+.text {
+    color: rgb(30, 245, 245);
+    margin-top: 37px;
+    font-size: 25px;
+    font-family: fantasy;
+}
