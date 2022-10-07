@@ -90,7 +90,13 @@ function deckOfCards() {
 }
 
 let playerOneDeck, playerTwoDeck, inGame; 
- 
+
+let warCards1 = [];
+let warCards2 = [];
+let warPot = [];
+var isWar = false;
+let pulledCards = 1;
+let staged = []
 
 playGameButton.addEventListener('click', () => {
     if (inGame) {
@@ -144,17 +150,45 @@ function flipCards(){
         gameText.innerText = "Player 1 Wins!";
         playerOneDeck.push(player1Card);
         playerOneDeck.push(player2Card);
-    } else if (player2Card, player1Card) {
+    } else if (roundWinner(player2Card, player1Card)) {
         gameText.innerText = "Player 2 Wins!";
         playerTwoDeck.push(player2Card);
         playerTwoDeck.push(player1Card);
     } else {
-        gameText.innerText = "Draw!";
-        playerOneDeck.push(player1Card);
-        playerTwoDeck.push(player2Card);
-    }
+        gameText.innerText = "Time for War!";
+        // playerOneDeck.push(player1Card);
+        // playerTwoDeck.push(player2Card);
+        if(playerOneDeck.length < 4){
+            gameOver = true;
+            inGame = false;
+            text.innerHTML = `No cards left! Player 2 Wins`;
+            playerOneDeck.innerText = 0;
+            playerTwoDeck.innerText = 52;
+            return inGame, gameOver;
+        }else if(playerTwoDeck.length < 4){
+            gameOver = true;
+            inGame = false;
+            text.innerHTML = `No cards left! Player 1 Wins`;
+            playerOneDeck.innerText = 52;
+            playerTwoDeck.innerText = 0;
+            return gameOn, gameOver;
+        } else {
+            pulledCards = 4;
+        }
     
+    }
+    return playerOneDeck, playerTwoDeck;
+}
 
+function deckStage(){
+    
+    staged.push(playerOneDeck.slice(0, pulledCards));
+    console.log(staged)
+    staged.push(playerOneDeck.slice(0, pulledCards));
+    console.log(staged)
+    staged = staged.flat(2);
+    playerOneDeck.splice(0,pulledCards);
+    playerTwoDeck.splice(0, pulledCards);
 }
 
 function updateDeckCount() {
@@ -170,7 +204,20 @@ function gameOver(deck) {
     return deck.numberOfCards === 0;
 }
 
+// function warTie() {
+//     warPot.push(player1Card);
+//     warPot.push(player2Card);
 
+//   warCards1 = player1Card.splice(player1Card.length - 3);
+//   warCards2 = player2Card.splice(player2Card.length - 3);
+
+//   warPot.push(...warCards1);
+//   warPot.push(...warCards2);
+
+//   console.log(warPot);
+//   isWar = true;
+
+// }
 
 
 //  function updateCardHand () {
